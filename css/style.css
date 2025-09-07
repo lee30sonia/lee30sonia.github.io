@@ -99,7 +99,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
-    margin-left: 0; /* No sidebar offset */
+    margin-left: 0; /* Remove left sidebar space */
     flex-direction: column;
   }
 
@@ -111,4 +111,37 @@ body {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 0
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    z-index: 1000;
+  }
+
+  /* Show menu toggle button on mobile */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide nav links on mobile by default */
+  .nav-links {
+    display: none !important;
+    flex-direction: column;
+    background: #34495e;
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Below topbar */
+    left: 0;
+    padding: 10px 0;
+  }
+
+  /* Show only when menu is active */
+  .nav-links.active {
+    display: flex !important;
+  }
+
+  /* Push page content below topbar */
+  .main {
+    margin-top: 0;
+    padding-top: calc(200px); /* Adjust to match topbar height */
+  }
+}
